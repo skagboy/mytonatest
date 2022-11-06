@@ -7,7 +7,7 @@
       stripe
       @row-click="showCharts"
     >
-      <el-table-column prop="country" label="Country" />
+      <el-table-column prop="country" label="Country" :sortable="true" />
     </el-table>
     <el-pagination
       background

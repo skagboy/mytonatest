@@ -27,9 +27,6 @@ export default {
     getUpdatedChartOptions() {
       return {
         ...options,
-        xAxis: {
-          categories: [],
-        },
         series: [
           {
             name: "deaths",

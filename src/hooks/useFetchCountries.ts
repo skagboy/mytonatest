@@ -12,17 +12,12 @@ export default function useFetchCountries() {
   const statistics = ref([]);
   const fullscreenLoading = ref(false);
 
-  const props = {
-    minDate: "2020-01-01T00:00:00.000Z",
-    maxDate: "2021-01-01T00:00:00.000Z",
-  };
-
   const getCountriesList = async () => {
     const loading = ElLoading.service({
       lock: true,
       text: "Loading",
     });
-    const list = await apiGetCountriesList(props);
+    const list = await apiGetCountriesList();
     countries.value = list.map((country: string) => ({ country }));
     store.commit("charts/setCountries", countries.value);
     fullscreenLoading.value = false;
@@ -36,7 +31,6 @@ export default function useFetchCountries() {
 
   const getStatisticsForCountry = async (name: string) => {
     statistics.value = await apiGetStatisticsForCountry({
-      ...props,
       country: name,
     });
   };

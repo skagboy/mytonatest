@@ -15,7 +15,7 @@ type UserType = {
   iss: string;
 };
 
-export let isLoginReady: any = null;
+export let isLoginReady: (value: unknown) => void;
 export const isLoginPromise = new Promise((resolve) => {
   isLoginReady = resolve;
 });
@@ -63,9 +63,6 @@ export const auth = {
       isLoginReady(true);
 
       return data;
-    },
-    clean({ commit }: { commit: Commit }) {
-      commit("setUser", null);
-    },
+    }
   },
 };

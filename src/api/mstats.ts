@@ -1,8 +1,8 @@
 import { instance as http } from "./http";
 
 export type FetchStatisticsProps = {
-  minDate: string;
-  maxDate: string;
+  minDate?: string;
+  maxDate?: string;
   country?: string;
 };
 export async function getCountriesList() {

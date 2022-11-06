@@ -47,12 +47,12 @@ export default {
   methods: {
     ...mapActions("auth", { auth: "login" }),
     async tryLogin() {
-      let login = await this.auth({
+      const login = await this.auth({
         username: this.login,
         password: this.password,
       });
 
-      if (login?.user_id) {
+      if (login.data.user_id) {
         this.$router.push({ name: "main" });
       } else {
         this.errorText = login.errors.join(",");
